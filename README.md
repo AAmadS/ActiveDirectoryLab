@@ -6,8 +6,8 @@ Project consists of a simple PowerShell script that walks the user through "zero
 
 <h2>Languages and Utilities Used</h2>
 
-- <b>PowerShell</b> 
-- <b>Diskpart</b>
+- <b>Vultr</b> 
+- <b>Draw.io</b>
 
 <h2>Environments Used </h2>
 
@@ -16,8 +16,8 @@ Project consists of a simple PowerShell script that walks the user through "zero
 <h2>Program walk-through:</h2>
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Creating a Diagram with Draw.io: <br/>
+<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="AD Project Steps"/>
 <br />
 <br />
 Select the disk:  <br/>
