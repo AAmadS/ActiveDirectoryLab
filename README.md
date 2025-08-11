@@ -19,7 +19,7 @@ This project simulates a real-world SOC workflow for detecting and responding to
 
 <p align="center">
 Creating a Diagram with Draw.io: <br/>
-<img src="https://imgur.com/un6RGdm.png" height="80%" width="80%" alt="AD Project Steps"/>
+<img src="https://imgur.com/SFquO3T.png" height="80%" width="80%" alt="AD Project Steps"/>
 <br />
  
 <p>
