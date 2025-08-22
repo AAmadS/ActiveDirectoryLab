@@ -23,7 +23,6 @@ Creating a Diagram with Draw.io: <br/>
 <br />
  
 <p>
- 
 This diagram illustrates a security workflow for detecting and responding to unauthorized logins in an Active Directory environment. The setup includes three virtual machines hosted on VULTR—a Domain Controller, a Test Machine, and a Splunk server—along with an attacker machine simulating an external threat actor.
 
 The attacker, using valid credentials, successfully authenticates to the Test Machine. This event generates telemetry, which is forwarded to the Splunk server. Upon detecting the login, Splunk triggers an alert that is sent to Slack and also initiates a Shuffle automation playbook.
@@ -35,9 +34,46 @@ The Successful Unauthorized Login Playbook sends an email to the SOC Analyst, as
 </p>
 
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Setting up virtual machines on Vultr and testing communications:<br/>
+<img src="https://imgur.com/AEnUhC5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+<p>
+ 
+The virtual machines consist of:
+- Two Windows Servers
+  - [AAmod-ADDC01] Domain Controller Specs: 
+    - Server Type: Shared CPU
+    - Cores: 2vCPUs
+    - Memory: 4GB
+    - Storage: 80GB
+    - Windows Standard Version: 2022 x64
+  - [Cloud Instance] Test Machine Specs (forgot to change name):
+    - Server Type: Shared CPU
+    - Cores: 1vCPUs
+    - Memory: 2GB
+    - Storage: 55GB
+    - Windows Standard Version: 2022 x64
+- [AAmod-Splunk] One Ubuntu Server:
+  - Splunk Machine Specs:
+    - Server Type: Shared CPU
+    - Cores: 4vCPUs
+    - Memory: 8GB
+    - Storage: 160GB
+    - Ubuntu Version: 22.02 x64
+
+After setting up my virtual machines I then went over to the Network -> Firewall section to create a group Firewall. By default a rule if automatically created for you which is to accept SSH connections from anywhere. This is simply not secure and I changed it to only accept SSH connections from my IP address along with MS RDP inbound. Next I setup a VPC so that all my virtual machines on the same VPC could communicate with each other internally.
+
+There are two ways you can access the virtual machines, one is through Windows remote desktop and the other is through the terminal button on the vultr website. For the sake of exploring and gainning expereince I went and preformed the "ipconfig" command on both the Cloud Instance (Test Machine) and AAmod-ADDC01. Remote desktop was definitely easier because of performance and not having to use alternative shortcuts. In the website console vultr gives you additional buttons on the side of the screen allowing you to preform key combinations like "ctrl+alt+delete", but as convieant as this option is, its simply very slow. To configure the AAmod-Splunk I decided to ssh into the virtual machine, after logging in I realized that I hadn't setup my firewall and VPC like the other virtual machines yet. After doing so the virtual machine reset and once I relogged I tried pinging another virutal machine but this where I ran into my first issue. Since all my virtual machines are on the same VPC I wasnt expecting to see a "Destination Host Unreachable" error. 
+
+</p>
+<br />
+Debugging "Destination Host Unreachable" after setting up VPC on Splunk Machine:<br/>
+<img src="https://imgur.com/gjhTuRN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<p>
+
+The screenshot above is showing me performing "ipconfig" from the Cloud Instance machine (Test Machine). 
+</p>
 <br />
 Enter the number of passes: <br/>
 <img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
