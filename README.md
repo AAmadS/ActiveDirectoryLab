@@ -72,11 +72,12 @@ Debugging "Destination Host Unreachable" after setting up VPC on Splunk Machine:
 <br />
 <p>
 
-To trouble shoot this issue I logged into my Cloud Instance (Test Machine) and preformed "ipconfig" in the terminal as seen in the screenshot above. If you look at the "Authoconfiguration IPv4 Address" under the "Ethernet Instance 0 2" section you can see that the IP address is 169.254.98.164 when it should be 10.1.96.3 which came from the VPC I set setup earlier. In order to fix this I right clicked the internet icon bottom right -> "Open Network & Internet Settings" -> "Change Adapter Options" -> right click "Ethernet Instance 0 2" -> "Properties" -> double click "Internet Protocol version 4 (TCP/IPv4)" -> click "Use the following IP address" and placed the VPC IP address and subnet mask given from vultr earlier.
+To trouble shoot this issue I logged into my Cloud Instance (Test Machine) and preformed "ipconfig" in the terminal as seen in the screenshot above. If you look at the "Authoconfiguration IPv4 Address" under the "Ethernet Instance 0 2" section you can see that the IP address is 169.254.98.164 when it should be 10.1.96.3 which came from the VPC I set setup earlier. In order to fix this I right clicked the internet icon bottom right -> "Open Network & Internet Settings" -> "Change Adapter Options" -> right click "Ethernet Instance 0 2" -> "Properties" -> double click "Internet Protocol version 4 (TCP/IPv4)" -> click "Use the following IP address" and placed the VPC IP address and subnet mask given from vultr earlier. After, I went back to my ssh on my Splunk machine did "ping 10.1.96.3" and started receving pings. After, I went and did the same to my AAmod-ADDC01 machine. 
+
 </p>
 <br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Splunk Machine receiving pings : <br/>
+<img src="https://imgur.com/Lh1C1RI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 </p>
