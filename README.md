@@ -13,7 +13,8 @@ This project simulates a real-world SOC workflow for detecting and responding to
 
 <h2>Environments Used </h2>
 
-- <b>Windows 10</b> (21H2)
+- <b>Windows 10</b> 2022 x64
+- <b>Ubuntu</b> 22.02 x64
 
 <h2>Project walk-through:</h2>
 
