@@ -19,10 +19,11 @@ This project simulates a real-world SOC workflow for detecting and responding to
 <h2>Project walk-through:</h2>
 
 <p align="center">
-Creating a Diagram with Draw.io: <br/>
+<b>Creating a Diagram with Draw.io:</b> <br/>
 <img src="https://imgur.com/SFquO3T.png" height="80%" width="80%" alt="AD Project Steps"/>
 <br />
- 
+</p>
+
 <p>
 This diagram illustrates a security workflow for detecting and responding to unauthorized logins in an Active Directory environment. The setup includes three virtual machines hosted on VULTR—a Domain Controller, a Test Machine, and a Splunk server—along with an attacker machine simulating an external threat actor.
 
@@ -35,9 +36,12 @@ The Successful Unauthorized Login Playbook sends an email to the SOC Analyst, as
 </p>
 
 <br />
-Setting up virtual machines on Vultr and testing communications:<br/>
+<p align="center">
+<b>Setting up virtual machines on Vultr and testing communications:</b><br/>
 <img src="https://imgur.com/AEnUhC5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+</p>
+
 <p>
  
 The virtual machines consist of:
@@ -67,21 +71,29 @@ After setting up my virtual machines I then went over to the Network -> Firewall
 There are two ways you can access the virtual machines, one is through Windows remote desktop and the other is through the terminal button on the vultr website. For the sake of exploring and gainning expereince I went and preformed the "ipconfig" command on both the Cloud Instance (Test Machine) and AAmod-ADDC01. Remote desktop was definitely easier because of performance and not having to use alternative shortcuts. In the website console vultr gives you additional buttons on the side of the screen allowing you to preform key combinations like "ctrl+alt+delete", but as convieant as this option is, its simply very slow. To configure the AAmod-Splunk I decided to ssh into the virtual machine, after logging in I realized that I hadn't setup my firewall and VPC like the other virtual machines yet. After doing so the virtual machine reset and once I relogged I tried pinging another virutal machine but this where I ran into my first issue. Since all my virtual machines are on the same VPC I wasnt expecting to see a "Destination Host Unreachable" error when I tried pinging another machine from my Splunk terminal. 
 
 </p>
-<br />
-Debugging "Destination Host Unreachable" after setting up VPC on Splunk Machine:<br/>
+
+<p align="center">
+<br/>
+<b>Debugging "Destination Host Unreachable" after setting up VPC on Splunk Machine:</b><br/>
 <img src="https://imgur.com/gjhTuRN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
+<br/>
+</p>
+ 
 <p>
 
 To trouble shoot this issue I logged into my Cloud Instance (Test Machine) and preformed "ipconfig" in the terminal as seen in the screenshot above. If you look at the "Authoconfiguration IPv4 Address" under the "Ethernet Instance 0 2" section you can see that the IP address is 169.254.98.164 when it should be 10.1.96.3 which came from the VPC I set setup earlier. In order to fix this I right clicked the internet icon bottom right -> "Open Network & Internet Settings" -> "Change Adapter Options" -> right click "Ethernet Instance 0 2" -> "Properties" -> double click "Internet Protocol version 4 (TCP/IPv4)" -> click "Use the following IP address" and placed the VPC IP address and subnet mask given from vultr earlier. After, I went back to my ssh on my Splunk machine did "ping 10.1.96.3" and started receving pings. After, I went and did the same to my AAmod-ADDC01 machine. 
 
 </p>
+
+<p align="center">
 <br />
-Splunk Machine receiving pings : <br/>
+<b>Splunk Machine receiving pings:</b> <br/>
 <img src="https://imgur.com/Lh1C1RI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<br />
 </p>
+
+<br />
+
 
 <!--
  ```diff
