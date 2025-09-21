@@ -52,7 +52,7 @@ The virtual machines consist of:
     - Memory: 4GB
     - Storage: 80GB
     - Windows Standard Version: 2022 x64
-  - [Cloud Instance] Test Machine Specs (forgot to change name):
+  - [Cloud Instance] Test Machine Specs (forgot to rename):
     - Server Type: Shared CPU
     - Cores: 1vCPUs
     - Memory: 2GB
@@ -113,9 +113,35 @@ With the three virtual machines now setup, its time to install & configure activ
 </p>
 
 <p>
-After the domain controller setup I quickly made a user for testing and authenticating my test machine.
+After the domain controller setup I made a user for testing and authenticating my Cloud Instance (Test Machine). Now to join the Cloud Instance (Test Machine) to the new domain.
 </p>
 
+<p align="center">
+<br />
+<b>Joining Cloud Instance (Test Machine) to new domain</b> <br/>
+<img src="https://imgur.com/FRa8dGk.png" height="80%" width="80%" alt="Joining Cloud Instance (Test Machine) to new domain"/>
+<br />
+</p>
+
+<p>
+Steps for joining test machine to new domain:
+<ol> 
+<li>Type "This PC" in the task bar search</li>
+<li>Right click, select "properties"</li>
+<li>Left click  "Rename this PC (advanced)" under "Related Settings"</li>
+<li>In the "Computer Name" tab click "change"</li>
+<li>In the "Member of" section left click "Domain" and add the domain name, in my case it was "AAmod"</li>
+</ol>
+Incase of DNS issues:
+<ol>
+<li>Right click the network icon in the bottom right of the task bar and left click "Open Network and Internet Settings.</li>
+<li>Under "Advanced network settings" left click "Change adapter options"</li>
+<li>Double left click "Ethernet Instance 0 2"</li>
+<li>Left click "Properties"</li>
+<li>Double left click "Internet Protocol Version 4 (TCP/IPv4)"</li>
+<li>Under "Use the following DNS server addresses:" enter the VPC of the domain controller into the "Perferred DNS server": field</li>
+</ol>
+</p>
 
 <br />
 
