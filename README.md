@@ -104,6 +104,19 @@ To trouble shoot this issue I logged into my Cloud Instance (Test Machine) and p
 With the three virtual machines now setup, its time to install & configure active directory on AAmod-ADDC01, promote it to a domain controller and configure the target machine to join the new domain. Since I didnt change many settings except for the checking the box "Active Directory Domain Services" as seen in the screen shot I decided not to include much about that step. The same goes for promoting the server, after clicking next a couple times, and installing Active Directory. A notification appears in the top right of the Server Manager window that has an option to "Promte this server to a domain controller". In this new wizard the only thing I changed other than adding a password was in the first step "Deployment Configuration". In this step I made sure to check the "Add a new forest" option and set my root domain name to "AAmod.local".
 
 </p>
+
+<p align="center">
+<br />
+<b>Adding First User:</b> <br/>
+<img src="https://imgur.com/FRa8dGk.png" height="80%" width="80%" alt="Adding First User"/>
+<br />
+</p>
+
+<p>
+After the domain controller setup I quickly made a user for testing later.
+</p>
+
+
 <br />
 
 
