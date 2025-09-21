@@ -133,6 +133,17 @@ Steps for joining test machine to new domain:
 <li>In the "Member of" section left click "Domain" and add the domain name, in my case it was "AAmod"</li>
 <li>Once you click "OK" you will be promoted to put in your administative credentials and you should see a pop up saying "Welcome to [name] domain</li>
 </ol>
+</p>
+
+<p align="center">
+<br />
+<b>Confirmation of Joining Domain</b> <br/>
+<img src="https://imgur.com/lsTfLg0.png" height="80%" width="80%" alt="Confirmation of Joining Domain"/>
+<br />
+</p>
+
+
+</p>
 Incase of DNS issues:
 <ol>
 <li>Right click the network icon in the bottom right of the task bar and left click "Open Network and Internet Settings.</li>
