@@ -113,7 +113,7 @@ With the three virtual machines now setup, its time to install & configure activ
 </p>
 
 <p>
-After the domain controller setup I quickly made a user for testing later.
+After the domain controller setup I quickly made a user for testing and authenticating my test machine.
 </p>
 
 
