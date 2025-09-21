@@ -119,7 +119,7 @@ After the domain controller setup I made a user for testing and authenticating m
 <p align="center">
 <br />
 <b>Joining Cloud Instance (Test Machine) to new domain</b> <br/>
-<img src="https://imgur.com/FRa8dGk.png" height="80%" width="80%" alt="Joining Cloud Instance (Test Machine) to new domain"/>
+<img src="https://imgur.com/fbhuSms.png" height="80%" width="80%" alt="Joining Cloud Instance (Test Machine) to new domain"/>
 <br />
 </p>
 
