@@ -131,6 +131,7 @@ Steps for joining test machine to new domain:
 <li>Left click  "Rename this PC (advanced)" under "Related Settings"</li>
 <li>In the "Computer Name" tab click "change"</li>
 <li>In the "Member of" section left click "Domain" and add the domain name, in my case it was "AAmod"</li>
+<li>Once you click "OK" you will be promoted to put in your administative credentials and you should see a pop up saying "Welcome to [name] domain</li>
 </ol>
 Incase of DNS issues:
 <ol>
