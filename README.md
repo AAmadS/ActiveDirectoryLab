@@ -251,7 +251,12 @@ Configure Port 9997:
 </ol>
 </p>
 
-
+<p align="center">
+<br />
+<b>Telemetry Confirmation on Splunk Enterprise</b> <br/>
+<img src="https://imgur.com/CC4mHKI.png" height="80%" width="80%" alt="Telemetry Confirmation on Splunk Enterprise"/>
+<br />
+</p>
 
 <br />
 
