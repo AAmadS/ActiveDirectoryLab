@@ -181,7 +181,7 @@ Here I'm simply locating the Splunk binary and runnning the command "./splunk st
 <li>In my Ubuntu VM type "ufw allow 8000"</li>
 </ul>
 <p>
-With these new rules added, I was finally able to access the Splunk Enterprise website. On the website I first changed my timezone to GMT so that any alerts would be in a timezone relevent to myself and I installed "Splunk Add-on for Microsoft Windows" through the apps section. Next I went into "Settings" -> "Indexes" -> "New Index" and created a new index called "aamod-ad". Additionally, I went into "Settings" -> "Fowarding and receiving" -> "Configure receiving" -> "New Receving Port" to listen in on port 9997 (Splunk default).
+With these new rules added, I was finally able to access the Splunk Enterprise website. On the website I first changed my timezone to (GMT-04:00) so that any alerts would be in a timezone relevent to myself and I installed "Splunk Add-on for Microsoft Windows" through the apps section. Next I went into "Settings" -> "Indexes" -> "New Index" and created a new index called "aamod-ad". Additionally, I went into "Settings" -> "Fowarding and receiving" -> "Configure receiving" -> "New Receving Port" to listen in on port 9997 (Splunk default).
 </p>
 
 <p align="center">
