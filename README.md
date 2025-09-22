@@ -155,6 +155,28 @@ Incase of DNS issues:
 </ol>
 </p>
 
+<p align="center">
+<br />
+<b>Splunk Enterprise Trial for Ubuntu</b> <br/>
+<img src="https://imgur.com/G2PjT5w.png" height="80%" width="80%" alt="Splunk Enterprise Trial for Ubuntu"/>
+<br />
+</p>
+
+<p>
+Here is where I install and configure Splunk on the Ubuntu server, configure Windows end points to send telemetry over to the splunk server and create a Splunk alert to detect successful Splunk authentications. Since is personal project I'm just using a trial version of Splunk Enterprise for my Ubuntu VM. On the Splunk Enterprise webpage the "Copy wget link" gives you a command you can directly put into your linux terminal to download Splunk. In my case I used the .deb file format.
+</p>
+
+<p align="center">
+<br />
+<b>Locating Splunk binary</b> <br/>
+<img src="https://imgur.com/ao1kTuA.png" height="80%" width="80%" alt="Splunk Enterprise Trial for Ubuntu"/>
+<br />
+</p>
+
+<p>
+Here I'm simply locating the Splunk binary and runnning the command "./splunk start". After performing this command I was met with the licensing agreement and then I set up an administrator account.
+</p>
+
 <br />
 
 
