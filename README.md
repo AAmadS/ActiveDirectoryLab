@@ -174,7 +174,21 @@ Here is where I install and configure Splunk on the Ubuntu server, configure Win
 </p>
 
 <p>
-Here I'm simply locating the Splunk binary and runnning the command "./splunk start". After performing this command I was met with the licensing agreement and then I set up an administrator account.
+Here I'm simply locating the Splunk binary and runnning the command "./splunk start". After performing this command I was met with the licensing agreement and then I set up an administrator account. Before I'm able to access the Splunk Enterprise website on port 8000, I first needed to do a few things.
+</p>
+<ul>
+<li>Add a firewall rule on Vultr to accept TCP from port 8000 from my IP address</li>
+<li>In my Ubuntu VM type "ufw allow 8000"</li>
+</ul>
+<p>
+With these new rules added, I was finally able to access the Splunk Enterprise website. On the website I first changed my timezone to GMT so that any alerts would be in a timezone relevent to myself and I installed "Splunk Add-on for Microsoft Windows" through the apps section. Next I went into "Settings" -> "Indexes" -> "New Index" and created a new index called "aamod-ad". Additionally, I went into "Settings" -> "Fowarding and receiving" -> "Configure receiving" -> "New Receving Port" to listen in on port 9997 (Splunk default).
+</p>
+
+<p align="center">
+<br />
+<b>Splunk Universal Forwarder Setup</b> <br/>
+<img src="https://imgur.com/L5q7nt5.png" height="80%" width="80%" alt="Splunk Universal Forwarder Setup"/>
+<br />
 </p>
 
 <br />
