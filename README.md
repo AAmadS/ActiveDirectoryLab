@@ -191,6 +191,56 @@ With these new rules added, I was finally able to access the Splunk Enterprise w
 <br />
 </p>
 
+<p>
+Now to setup Splunk Universal Forwarder on my Cloud Instance (Test Machine). First I went over to the Splunk website and downloaded the 64-bit installer and copied it over to my Cloud Instance (Test Machine). In the installer, at the "Receiving Indexer" setup I added my AAmod-Splunk VPC on port 9997 (default). 
+</p>
+
+<p align="center">
+<br />
+<b>Adding inputs.conf to SplunkUniversalForwarder local</b> <br/>
+<img src="https://imgur.com/AZ3o0eB.png" height="80%" width="80%" alt="Adding inputs.conf to SplunkUniversalForwarder local"/>
+<br />
+</p>
+
+</p>
+Adding "inputs.conf" to SplunkUniversalForwarder local folder:
+<ol>
+<li>Left click "File Explorer"</li>
+<li>Left click "This PC"</li>
+<li>Double left click "System Drive (C:)"</li>
+<li>Double left click "Program files"</li>
+<li>Double left click "SplunkUniversalForwarder"</li>
+<li>Double left click "etc"</li>
+<li>Double left click "system"</li>
+<li>Double left click "default"</li>
+<li>Right click and copy "inputs.conf"</li>
+<li>left click "system" at the top to go back</li>
+<li>Double click "local"</li>
+<li>Right click and paste the "inputs.conf" file</li>
+<li>In the search bar on the task bar search "notepad" and open</li>
+<li>On the top left, left click "File" -> "New" and navigate to the "inputs.conf" file and double left click it to open</li>
+<li>Scroll to the very bottom and add <br />
+"[WinEventLog://Security] <br />
+index = aamod-ad <br />
+disabled = false" </li>
+</ol>
+</p>
+
+</p>
+Restarting "SplunkForwarder":
+<ol>
+<li>In the task bar search type "services" and left click</li>
+<li>Scroll down until you find "SplunkForwarder" and double left click</li>
+<li>left click the "Log On" tab</li>
+<li>left click the "Local System account" check box and left click "Apply"</li>
+<li>In the "Services" window, right click "SplunkForwarder" and left click "Restart"</li>
+<li>If a warning pops up left click "OK"</li>
+<li>Right click "SplunkForwarder" and left click "Start"</li>
+</ol>
+</p>
+
+
+
 <br />
 
 
