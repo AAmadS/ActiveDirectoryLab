@@ -203,7 +203,7 @@ Now to setup Splunk Universal Forwarder on my Cloud Instance (Test Machine). Fir
 </p>
 
 <p>
- These next steps allow telemery to Splunk, and the bit added to the "inputs.conf" file is the index that I created earlier.
+These next steps are to done on both AAmod-Splunk(Ubuntu) and AAmod-ADDC01(Domain Controller) to allow telemery to Splunk, and the bit added to the "inputs.conf" file is the index that I created earlier.
 </p>
 
 </p>
