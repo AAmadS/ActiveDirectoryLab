@@ -20,14 +20,14 @@ This project simulates a real-world SOC workflow for detecting and responding to
 
 <p align="center">
 <b>Creating a Diagram with Draw.io:</b> <br/>
-<img src="https://imgur.com/SFquO3T.png" height="80%" width="80%" alt="Creating a Diagram with Draw.io"/>
+<img src="https://imgur.com/xcrLGXb.png" height="80%" width="80%" alt="Creating a Diagram with Draw.io"/>
 <br />
 </p>
 
 <p>
 This diagram illustrates a security workflow for detecting and responding to unauthorized logins in an Active Directory environment. The setup includes three virtual machines hosted on VULTR—a Domain Controller, a Test Machine, and a Splunk server—along with an attacker machine simulating an external threat actor.
 
-The attacker, using valid credentials, successfully authenticates to the Test Machine. This event generates telemetry, which is forwarded to the Splunk server. Upon detecting the login, Splunk triggers an alert that is sent to Slack and also initiates a Shuffle automation playbook.
+The attacker, using valid credentials, successfully authenticates to the Test Machine. This event generates telemetry, which is forwarded to the Splunk server. Upon detecting the login, Splunk triggers Shuffle's automation playbook and Shuffle sends an alert to Slack.
 
 The Successful Unauthorized Login Playbook sends an email to the SOC Analyst, asking whether the suspicious user account should be disabled.
 
