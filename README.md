@@ -259,8 +259,11 @@ Configure Port 9997:
 </p>
 
 <p>
- Since telemetry is working I decieded to loosen up my firewall by changing the TCP (MS RDP) rule to allow a source from anywhere. Since this is just a project for experimenting this wasn't a big deal. I also setup my first alert on Splunk as shown above.
+ Since telemetry is working I decieded to loosen up my firewall by changing the TCP (MS RDP) rule to allow a source from anywhere. Since this is just a project for experimenting this wasn't a big deal. I also setup my first alert on Splunk as shown below.
 </p>
+<ul>
+ <li>index="aamod-ad" EventCode=4624 Logon_Type=10 (Logon_Type=7 OR Logon_Type=10) Source_Network_Address=* Source_Network_Address!="-" Source_Network_Address!=40.* |stats count by _time,ComputerName,Source_Network_Address,user ,Logon_Type</li>
+</ul>
 
 <br />
 
