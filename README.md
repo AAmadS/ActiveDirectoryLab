@@ -265,19 +265,33 @@ Configure Port 9997:
  <li>index="aamod-ad" EventCode=4624 (Logon_Type=7 OR Logon_Type=10) Source_Network_Address=* Source_Network_Address!="-" Source_Network_Address!=40.* |stats count by _time,ComputerName,Source_Network_Address,user,Logon_Type</li>
 </ul>
 
+<p align="center">
+<br />
+<b>First Shuffle alert from Splunk after connecting webhook</b> <br/>
+<img src="https://imgur.com/zb9B9sO.png" height="80%" width="80%" alt="First Shuffle alert from Splunk"/>
+<br />
+</p>
+
 <p>
- Now is when I intergrate Slack and Shuffle for automation and response. As well as build a responsive playbook to disable any domain user if an unauthorized login was detected.
-Setting up Shuffle:
+ Now is when I intergrate Slack and Shuffle for automation and response. As well as build a responsive playbook to disable any domain user if an unauthorized login was detected. For context the IP shown on the right on this alert was from logging in to the Cloud Instance (Test Machine) with a VPN active. I used PrivadoVPN since they have a free plan and I only needed a VPN active to generate some alerts for Splunk.
+</p>
+
+<p>
+Connecting Webhook to Splunk:
 </p>
 <ol>
 <li>In a fresh Shuffle workflow, drag in a webhook trigger and copy the Webhook URI</li>
 <li>Next go back to Splunk Enterprise, edit the alert already made and add a new trigger for Webhook and paste in the URI taken from shuffle</li>
- <li>Now go back into shuffle and press start on the webhook node, this will allow shuffle is able to recieve any alerts from splunk </li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
+<li>Now go back into shuffle and press start on the webhook node, this will allow shuffle is able to recieve any alerts from splunk </li>
+</ol>
+
+<p>
+Connecting Slack to Shuffle:
+</p>
+<ol>
+<li></li>
+<li></li>
+<li></li>
 </ol>
 
 <br />
