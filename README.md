@@ -258,6 +258,10 @@ Configure Port 9997:
 <br />
 </p>
 
+<p>
+ Since telemetry is working I decieded to loosen up my firewall by changing the TCP (MS RDP) rule to allow a source from anywhere. Since this is just a project for experimenting this wasn't a big deal. I also setup my first alert on Splunk as shown above.
+</p>
+
 <br />
 
 
