@@ -202,6 +202,10 @@ Now to setup Splunk Universal Forwarder on my Cloud Instance (Test Machine). Fir
 <br />
 </p>
 
+<p>
+ These next steps allow telemery to Splunk, and the bit added to the "inputs.conf" file is the index that I created earlier.
+</p>
+
 </p>
 Adding "inputs.conf" to SplunkUniversalForwarder local folder:
 <ol>
@@ -236,6 +240,14 @@ Restarting "SplunkForwarder":
 <li>In the "Services" window, right click "SplunkForwarder" and left click "Restart"</li>
 <li>If a warning pops up left click "OK"</li>
 <li>Right click "SplunkForwarder" and left click "Start"</li>
+</ol>
+</p>
+
+</p>
+Configure Port 9997:
+<ol>
+<li>ssh into the AAmod-Splunk Ubuntu VM</li>
+<li>type "ufw allow 9997" press Enter</li>
 </ol>
 </p>
 
