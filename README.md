@@ -7,6 +7,7 @@ This project simulates a real-world SOC workflow for detecting and responding to
 <h2>Languages and Utilities Used</h2>
 
 - <b>Draw.io</b>
+- <b>Slack</b>
 - <b>Splunk</b>
 - <b>Shuffle</b>
 - <b>Vultr</b>
