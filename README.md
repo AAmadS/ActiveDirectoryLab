@@ -363,7 +363,21 @@ The three screenshots are proof of the bot working. I first renabled my Splunk a
 </p>
 
 <p>
- Now to connect this user action so that if I want to disable the user I can just click the link for disable. To do this I user Shuffle's Active Directory node.
+ Now to connect this user action so that if I want to disable the user I can just click the link for disable and get a notification on Slack for confirmation. To do this I user Shuffle's Active Directory node.
+</p>
+
+<p align="center">
+<br />
+<b>Shuffle Final Workflow Visual</b> <br/>
+<img src="https://imgur.com/ahSMxQa.png" height="80%" width="80%" alt="Shuffle Final Workflow Visual"/>
+<br />
+</p>
+
+<p align="center">
+<br />
+<b>Slack Notification of account disabled</b> <br/>
+<img src="https://imgur.com/soxKnDN.png" height="80%" width="80%" alt="Slack Notification of account disabled"/>
+<br />
 </p>
 
 <ol>
@@ -375,7 +389,18 @@ The three screenshots are proof of the bot working. I first renabled my Splunk a
  <li>Open PowerShell and type "Get-ADDomain". At the very bottom you will see the "base_dn".</li>
  <li>Back in Shuffle in the "Active Directory" node, "Find Actions" -> "Disable User" and "Samacountname" -> type "$exec.result.user"</li>
  <li>Also allow port 389 in firewall rules.</li>
+ <li>Back in Shuffle drag in another "Active Directory" Node.</li>
+ <li>Under "Find Actions" -> select "User attributes" -> in "Search Base" enter the base_dn.</li>
+ <li>Drag in a "Repeat back to me" node</li>
+ <li>Under "Find Actions" -> select "Repead back to me".</li>
+ <li>Under "Call" type "$get-user-attributes.attributes.userAccountControl".</li>
+ <li>Drag a branch to a new Slack node</li>
+ <li>Click the branch to add a new condition.</li>
+ <li>Under "Source" type "$get-user-attributes.attributes.userAccountControl" -> Switch the middle to "contains" -> under "destination" type" ""ACCOUNTDISABLED""</li>
+ <li>In the new Slack node enter the channel ID and in "Text" type "Account: $exec.result.user has been disabled."</li>
 </ol>
+
+
 
 <br />
 <!--
