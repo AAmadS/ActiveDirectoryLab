@@ -287,12 +287,19 @@ Connecting Webhook to Splunk:
 </ol>
 
 <p>
+This is the manual way of connecting the Shuffle bot to Slack because in my case the "One-click Authentication" was giving me errors.<br>
+
 Connecting Slack to Shuffle:
 </p>
 <ol>
-<li></li>
-<li></li>
-<li></li>
+<li>First log into your Slack account and make sure you have a workspace.</li>
+<li>Open https://api.slack.com/apps -> "Create New App" -> <i>"From Scratch"</i>.</li>
+<li>After naming the app go to "OAuth & Permissions" -> "Redirect URLs -> "Add New Redirect URL" -> paste https://shuffler.io/set_authentication -> "Add" -> "Save URLs".</li>
+<li>Now add the bare minimum "Bot Tokens Scopes", in my case I only used "chat:write" , "app_mentions:read" , "users:read". </li>
+<li>Now at the top of "OAuth & Permissions -> "Install to Workspace -> "Allow". </li>
+<li>Go back to "Basic Information" -> "App Credentials" and bring the "Client ID" and "Client Secret" over to Shuffle.</li>
+<li>After dragging in the Slack node and clicking "Authenticate" you will see slots to put your "Client ID and "Client Secret".</li>
+<li>Lastly add the <b>EXACT</b> same scopes you added on the Slack bot to the Slack node.</li>
 </ol>
 
 <br />
