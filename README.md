@@ -335,6 +335,16 @@ Setting Up the Slack node:
 </p>
 <br />
 
+<p>
+The three screenshots are proof of the bot working. I first renabled my Splunk alert, turned on a VPN and logged into the JJohnson account on my Cloud Instance (Test Machine) to generate data. After the alert was triggered on Splunk the webhook brought that data over to Shuffle which then got tranfered to the Slack node. From the Slack node, it then got pushed to the Shuffle bot on Slack and posted the alert in chat.
+</p>
+
+<br/>
+
+<p>
+ Now I setup the email notification in shuffle asking if I want to disable the user of interest.
+</p>
+
 
 <!--
  ```diff
