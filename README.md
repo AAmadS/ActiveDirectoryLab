@@ -347,7 +347,6 @@ The three screenshots are proof of the bot working. I first renabled my Splunk a
 <img src="https://imgur.com/FoCO7aW.png" height="80%" width="80%" alt="Shuffle Email Notification Confirmation"/>
 <br />
 </p>
-<br />
 
 <p>
  Now to setup the email notification in shuffle asking if I want to disable the user of interest.
@@ -360,8 +359,25 @@ The three screenshots are proof of the bot working. I first renabled my Splunk a
 </ol>
 
 <p>
- To test, I went and made a temp mail and did a new run of the workflow. 
+ To test, I went and made a temp mail and did a new run of the workflow. ----------------------Explain-----------------------
 </p>
+
+<p>
+ Now to connect this user action so that if I want to disable the user I can just click the link for disable. To do this I user Shuffle's Active Directory node.
+</p>
+
+<ol>
+ <li>First drag in the Active Directory node.</li>
+ <li>Connect the "User Action" node to the "Active Directory" node</li>
+ <li>Fill in the requested date. In my case everything except for "base_dn" was found on the Vultr website where I got my VMs.</li>
+ <li>LDAP default port will be 389.</li>
+ <li>To get the "base_dn" remote desktop into the domain controller.</li>
+ <li>Open PowerShell and type "Get-ADDomain". At the very bottom you will see the "base_dn".</li>
+ <li>Back in Shuffle in the "Active Directory" node, "Find Actions" -> "Disable User" and "Samacountname" -> type "$exec.result.user"</li>
+ <li>Also allow port 389 in firewall rules.</li>
+</ol>
+
+<br />
 <!--
  ```diff
 - text in red
