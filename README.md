@@ -359,7 +359,7 @@ The three screenshots are proof of the bot working. I first renabled my Splunk a
 </ol>
 
 <p>
- To test, I went and made a temp mail and did a new run of the workflow. ----------------------Explain-----------------------
+ To test, I went and made a temp mail and did a new run of the workflow.
 </p>
 
 <p>
