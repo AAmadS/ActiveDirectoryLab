@@ -23,14 +23,15 @@ This project recreates a small-scale Security Operations Center (SOC) workflow i
 </p>
 
 <p>
-This diagram illustrates a security workflow for detecting and responding to unauthorized logins in an Active Directory environment. The setup includes three virtual machines hosted on VULTR—a Domain Controller, a Test Machine, and a Splunk server—along with an attacker machine simulating an external threat actor.
+This diagram outlines the overall security workflow for detecting and responding to unauthorized logins within an Active Directory environment. The lab consists of three <b>Vultr-hosted virtual machines</b>—a Domain Controller, a Test Machine, and a Splunk Server—plus an external Attacker Machine used to simulate intrusion attempts.<br/><br/>
 
-The attacker, using valid credentials, successfully authenticates to the Test Machine. This event generates telemetry, which is forwarded to the Splunk server. Upon detecting the login, Splunk triggers Shuffle's automation playbook and Shuffle sends an alert to Slack.
+When the attacker logs in using valid but unauthorized credentials, the event is captured and forwarded to <b>Splunk</b> for analysis. Once Splunk detects the login, it triggers a <b>Shuffle</b> playbook that sends an alert to <b>Slack</b> for analyst review.<br/><br/>
 
-The Successful Unauthorized Login Playbook sends an email to the SOC Analyst, asking whether the suspicious user account should be disabled.
-
-- If Yes, Shuffle proceeds to disable the domain account in Active Directory and sends a confirmation notification to Slack.
-- If No, no further action is taken.
+The playbook then prompts the analyst via email to confirm whether the compromised account should be disabled:
+<ul>
+<li><b>Yes</b> — Shuffle disables the user in Active Directory and sends a confirmation message to Slack.</li>
+<li><b>No</b> — The workflow ends without taking action.</li>
+</ul>
 </p>
 
 <br />
