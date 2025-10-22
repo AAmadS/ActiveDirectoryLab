@@ -344,12 +344,16 @@ This final stage completes the automated response cycle. Once the SOC analyst ap
 This logic ensures that account disablement is both automated and verified, demonstrating how a <b>SOAR playbook</b> can integrate Splunk, Shuffle, and Active Directory to simulate real-world incident response workflows.
 </p>
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+<h2>Summary</h2>
+
+<p>
+This project demonstrates a complete <b>Security Orchestration, Automation, and Response (SOAR)</b> workflow built from the ground up. Using <b>Active Directory</b>, <b>Splunk Enterprise</b>, <b>Shuffle</b>, and <b>Slack</b>, the system successfully detects and responds to unauthorized login events in a simulated enterprise environment.
+</p>
+
+<p>
+Telemetry from <b>Windows Server</b> endpoints is forwarded to <b>Splunk</b>, which triggers alerts based on specific event codes. These alerts are sent to <b>Shuffle</b> through a webhook, where automation logic routes them to <b>Slack</b> for analyst review. The analyst can then authorize an automated response—such as disabling a compromised user account—directly through email, with real-time confirmation messages posted in Slack.
+</p>
+
+<p>
+Overall, this project highlights the power of integrating <b>SIEM</b> and <b>SOAR</b> technologies for streamlined incident detection, analysis, and remediation. It reflects a practical understanding of <b>cybersecurity automation</b> and how security teams can minimize response time through intelligent workflows.
+</p>
