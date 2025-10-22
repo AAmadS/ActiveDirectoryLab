@@ -104,16 +104,17 @@ The fix involved manually assigning the correct IP and subnet mask through the a
 
 
 <p align="center">
-<br />
-<b>Installing Active Directory on AAmod-ADDC01:</b> <br/>
+<b>Installing Active Directory on AAmod-ADDC01:</b><br/>
 <img src="https://imgur.com/wXBGvcy.png" height="80%" width="80%" alt="Installing Active Directory on AAmod-ADDC01"/>
-<br />
+<br/>
 </p>
 
 <p>
-With the three virtual machines now setup, its time to install & configure active directory on AAmod-ADDC01, promote it to a domain controller and configure the target machine to join the new domain. Since I didnt change many settings except for the checking the box "Active Directory Domain Services" as seen in the screen shot I decided not to include much about that step. The same goes for promoting the server, after clicking next a couple times, and installing Active Directory. A notification appears in the top right of the Server Manager window that has an option to "Promte this server to a domain controller". In this new wizard the only thing I changed other than adding a password was in the first step "Deployment Configuration". In this step I made sure to check the "Add a new forest" option and set my root domain name to "AAmod.local".
+With all virtual machines configured, I installed and set up <b>Active Directory Domain Services (AD DS)</b> on <b>AAmod-ADDC01</b>. The server was then promoted to a <b>Domain Controller</b> for a new forest named <b>AAmod.local</b>.<br/><br/>
 
+The installation followed the standard Windows Server process, requiring minimal configuration changes beyond selecting <i>“Add a new forest”</i> and setting a secure DSRM password. After the promotion completed, the domain was ready for client machines to join.
 </p>
+
 
 <p align="center">
 <br />
