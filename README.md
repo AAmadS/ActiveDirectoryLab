@@ -4,18 +4,15 @@
 This project recreates a small-scale Security Operations Center (SOC) workflow in a virtual Active Directory environment. It integrates Splunk, Shuffle SOAR, and Slack to detect unauthorized logins and automate incident response. When suspicious activity is detected, Splunk triggers a Shuffle playbook that alerts a SOC analyst via Slack and upon approval automatically disables the compromised account in Active Directory.
 <br />
 
-<h2>Languages and Utilities Used</h2>
+<h2>Tools & Environment</h2>
 
-- <b>Draw.io</b>
-- <b>Slack</b>
-- <b>Splunk</b>
-- <b>Shuffle</b>
-- <b>Vultr</b>
-
-<h2>Environments Used </h2>
-
-- <b>Windows 10</b> 2022 x64
-- <b>Ubuntu</b> 22.02 x64
+- <b>Draw.io – network and workflow diagramming</b>
+- <b>Slack – SOC communication and alerting</b>
+- <b>Splunk – log ingestion and alert generation</b>
+- <b>Shuffle – automation and Active Directory integration</b>
+- <b>Vultr – virtual machine hosting</b>
+- <b>Windows Server 2022 & Windows 10 – Active Directory and test clients</b>
+- <b>Ubuntu 22.04 LTS – Splunk server</b>
 
 <h2>Project walk-through:</h2>
 
