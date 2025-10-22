@@ -77,17 +77,17 @@ The lab environment consists of three virtual machines hosted on <b>Vultr Cloud<
 </ul>
 
 <p align="center">
-<br/>
-<b>Debugging "Destination Host Unreachable" after setting up VPC on Splunk Machine:</b><br/>
+<b>Debugging "Destination Host Unreachable" After Setting Up VPC on Splunk Machine:</b><br/>
 <img src="https://imgur.com/gjhTuRN.png" height="80%" width="80%" alt="Debugging 'Destination Host Unreachable' after setting up VPC on Splunk Machine"/>
 <br/>
- 
 </p>
 
-After setting up my virtual machines I then went over to the Network -> Firewall section to create a group Firewall. By default a rule if automatically created for you which is to accept SSH connections from anywhere. This is simply not secure and I changed it to only accept SSH connections from my IP address along with MS RDP (Microsoft Remote Desktop Protocol) inbound. Next I setup a VPC so that all my virtual machines on the same VPC could communicate with each other internally.
+<p>
+After deploying the virtual machines, I configured network security through the <b>Vultr Firewall</b> and <b>Virtual Private Cloud (VPC)</b>. By default, Vultr allows SSH connections from any source, so I restricted access to only my IP address and added inbound rules for <b>RDP (3389)</b> to securely access the Windows hosts.<br/><br/>
 
-There are two ways you can access the virtual machines, one is through Windows remote desktop and the other is through the terminal button on the vultr website. For the sake of exploring and gainning expereince I went and preformed the "ipconfig" command on both the Cloud Instance (Test Machine) and AAmod-ADDC01. Remote desktop was definitely easier because of performance and not having to use alternative shortcuts. In the website console vultr gives you additional buttons on the side of the screen allowing you to preform key combinations like "ctrl+alt+delete", but as convieant as this option is, its simply very slow. To configure the AAmod-Splunk I decided to ssh into the virtual machine, after logging in I realized that I hadn't setup my firewall and VPC like the other virtual machines yet. After doing so the virtual machine reset and once I relogged I tried pinging another virutal machine but this where I ran into my first issue. Since all my virtual machines are on the same VPC I wasnt expecting to see a "Destination Host Unreachable" error when I tried pinging another machine from my Splunk terminal. 
+A <b>VPC</b> was created to allow private communication between the Domain Controller, Test Machine, and Splunk server. The VMs could be accessed either through <b>Remote Desktop</b> or the <b>Vultr web console</b>—though RDP offered better performance for system configuration.<br/><br/>
 
+During initial testing, I encountered a <i>"Destination Host Unreachable"</i> error when pinging from the Splunk server to other machines, despite all systems being on the same VPC. This issue was later traced to a network misconfiguration, which I corrected by assigning proper IP addresses within the VPC subnet.
 </p>
 
 <p align="center">
