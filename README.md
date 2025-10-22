@@ -313,44 +313,37 @@ Next, I configured <b>Shuffle</b> to send an email prompt to the SOC analyst ask
 For testing, I used a temporary email address to confirm delivery and functionality. The next step connected this user action to the <b>Active Directory</b> node, enabling automated account disablement upon analyst approval.
 </p>
 
-
 <p align="center">
-<br />
-<b>Shuffle Final Workflow Visual</b> <br/>
+<b>Shuffle Final Workflow Visual:</b><br/>
 <img src="https://imgur.com/ahSMxQa.png" height="80%" width="80%" alt="Shuffle Final Workflow Visual"/>
-<br />
+<br/>
 </p>
 
 <p align="center">
-<br />
-<b>Slack Notification of account disabled</b> <br/>
+<b>Slack Notification of Account Disabled:</b><br/>
 <img src="https://imgur.com/soxKnDN.png" height="80%" width="80%" alt="Slack Notification of account disabled"/>
-<br />
+<br/>
 </p>
 
+<p>
+This final stage completes the automated response cycle. Once the SOC analyst approves the disable action via email, Shuffle connects to <b>Active Directory</b> and disables the specified domain account automatically. A confirmation message is then posted to <b>Slack</b> to verify completion.
+</p>
+
+<h4>Key Configuration Steps:</h4>
 <ol>
- <li>First drag in the Active Directory node.</li>
- <li>Connect the "User Action" node to the "Active Directory" node</li>
- <li>Fill in the requested date. In my case everything except for "base_dn" was found on the Vultr website where I got my VMs.</li>
- <li>LDAP default port will be 389.</li>
- <li>To get the "base_dn" remote desktop into the domain controller.</li>
- <li>Open PowerShell and type "Get-ADDomain". At the very bottom you will see the "base_dn".</li>
- <li>Back in Shuffle in the "Active Directory" node, "Find Actions" -> "Disable User" and "Samacountname" -> type "$exec.result.user"</li>
- <li>Also allow port 389 in firewall rules.</li>
- <li>Back in Shuffle drag in another "Active Directory" Node.</li>
- <li>Under "Find Actions" -> select "User attributes" -> in "Search Base" enter the base_dn.</li>
- <li>Drag in a "Repeat back to me" node</li>
- <li>Under "Find Actions" -> select "Repead back to me".</li>
- <li>Under "Call" type "$get-user-attributes.attributes.userAccountControl".</li>
- <li>Drag a branch to a new Slack node</li>
- <li>Click the branch to add a new condition.</li>
- <li>Under "Source" type "$get-user-attributes.attributes.userAccountControl" -> Switch the middle to "contains" -> under "destination" type" ""ACCOUNTDISABLED""</li>
- <li>In the new Slack node enter the channel ID and in "Text" type "Account: $exec.result.user has been disabled."</li>
+<li>Link the <b>User Input</b> node to an <b>Active Directory</b> node within Shuffle.</li>
+<li>Configure the AD node with the correct <b>LDAP port (389)</b> and <b>base distinguished name (base_dn)</b>.  
+   The <code>base_dn</code> can be retrieved by running <code>Get-ADDomain</code> in PowerShell on the domain controller.</li>
+<li>Select the “<b>Disable User</b>” action and set <code>SamAccountName = $exec.result.user</code>.</li>
+<li>Add a conditional branch that checks whether the <code>userAccountControl</code> attribute contains “ACCOUNTDISABLED.”</li>
+<li>If true, trigger a <b>Slack node</b> message confirming:  
+   <code>Account: $exec.result.user has been disabled.</code></li>
 </ol>
 
+<p>
+This logic ensures that account disablement is both automated and verified, demonstrating how a <b>SOAR playbook</b> can integrate Splunk, Shuffle, and Active Directory to simulate real-world incident response workflows.
+</p>
 
-
-<br />
 <!--
  ```diff
 - text in red
