@@ -161,89 +161,51 @@ For this personal lab, I used the <b>Splunk Enterprise Trial</b> to configure da
 </p>
 
 <p align="center">
-<br />
-<b>Locating Splunk binary</b> <br/>
-<img src="https://imgur.com/ao1kTuA.png" height="80%" width="80%" alt="Splunk Enterprise Trial for Ubuntu"/>
-<br />
+<b>Locating Splunk Binary:</b><br/>
+<img src="https://imgur.com/ao1kTuA.png" height="80%" width="80%" alt="Locating Splunk binary"/>
+<br/>
 </p>
 
 <p>
-Here I'm simply locating the Splunk binary and runnning the command "./splunk start". After performing this command I was met with the licensing agreement and then I set up an administrator account. Before I'm able to access the Splunk Enterprise website on port 8000, I first needed to do a few things.
-</p>
-<ul>
-<li>Add a firewall rule on Vultr to accept TCP from port 8000 from my IP address</li>
-<li>In my Ubuntu VM type "ufw allow 8000"</li>
-</ul>
-<p>
-With these new rules added, I was finally able to access the Splunk Enterprise website. On the website I first changed my timezone to (GMT-04:00) so that any alerts would be in a timezone relevent to myself and I installed "Splunk Add-on for Microsoft Windows" through the apps section. Next I went into "Settings" -> "Indexes" -> "New Index" and created a new index called "aamod-ad". Additionally, I went into "Settings" -> "Fowarding and receiving" -> "Configure receiving" -> "New Receving Port" to listen in on port 9997 (Splunk default).
+After installation, I located the <b>Splunk binary</b> on the Ubuntu server and initialized Splunk using <code>./splunk start</code>. Once the license agreement was accepted, I created an administrator account and enabled the web interface on port <b>8000</b>.<br/><br/>
+
+To ensure connectivity, I configured firewall rules to allow TCP traffic on port <b>8000</b> from my host IP and added a <code>ufw allow 8000</code> rule inside the VM. This allowed access to the <b>Splunk Enterprise Web UI</b> for further setup.
 </p>
 
 <p align="center">
-<br />
-<b>Splunk Universal Forwarder Setup</b> <br/>
+<b>Configuring Splunk Universal Forwarder:</b><br/>
 <img src="https://imgur.com/L5q7nt5.png" height="80%" width="80%" alt="Splunk Universal Forwarder Setup"/>
-<br />
+<br/>
 </p>
 
 <p>
-Now to setup Splunk Universal Forwarder on my Cloud Instance (Test Machine). First I went over to the Splunk website and downloaded the 64-bit installer and copied it over to my Cloud Instance (Test Machine). In the installer, at the "Receiving Indexer" setup I added my AAmod-Splunk VPC on port 9997 (default). 
+To collect Windows event logs, I installed the <b>Splunk Universal Forwarder</b> on the <b>Cloud Instance (Test Machine)</b> and linked it to the Splunk indexer (<b>AAmod-Splunk</b>) over port <b>9997</b>.<br/><br/>
+
+During installation, I specified the receiving indexer’s address and confirmed connectivity. The forwarder was configured to send <b>Security Event Logs</b> using the <b>inputs.conf</b> file and the previously created <b>aamod-ad</b> index. This allowed Windows telemetry to stream directly into Splunk Enterprise for monitoring and alerting.
 </p>
 
 <p align="center">
-<br />
-<b>Adding inputs.conf to SplunkUniversalForwarder local</b> <br/>
+<b>Adding inputs.conf to Splunk Universal Forwarder:</b><br/>
 <img src="https://imgur.com/AZ3o0eB.png" height="80%" width="80%" alt="Adding inputs.conf to SplunkUniversalForwarder local"/>
-<br />
+<br/>
 </p>
 
 <p>
-These next steps are to done on both AAmod-Splunk(Ubuntu) and AAmod-ADDC01(Domain Controller) to allow telemery to Splunk, and the bit added to the "inputs.conf" file is the index that I created earlier.
+To enable telemetry forwarding, I configured the <b>inputs.conf</b> file on both the <b>AAmod-Splunk (Ubuntu)</b> and <b>AAmod-ADDC01 (Domain Controller)</b> systems.<br/><br/>
+
+Within the <code>local</code> directory of the <b>Splunk Universal Forwarder</b>, I created and modified the <code>inputs.conf</code> file with the following configuration:
 </p>
 
-</p>
-Adding "inputs.conf" to SplunkUniversalForwarder local folder:
-<ol>
-<li>Left click "File Explorer"</li>
-<li>Left click "This PC"</li>
-<li>Double left click "System Drive (C:)"</li>
-<li>Double left click "Program files"</li>
-<li>Double left click "SplunkUniversalForwarder"</li>
-<li>Double left click "etc"</li>
-<li>Double left click "system"</li>
-<li>Double left click "default"</li>
-<li>Right click and copy "inputs.conf"</li>
-<li>left click "system" at the top to go back</li>
-<li>Double click "local"</li>
-<li>Right click and paste the "inputs.conf" file</li>
-<li>In the search bar on the task bar search "notepad" and open</li>
-<li>On the top left, left click "File" -> "New" and navigate to the "inputs.conf" file and double left click it to open</li>
-<li>Scroll to the very bottom and add <br />
-"[WinEventLog://Security] <br />
-index = aamod-ad <br />
-disabled = false" </li>
-</ol>
+<pre><code>[WinEventLog://Security]
+index = aamod-ad
+disabled = false
+</code></pre>
+
+<p>
+This ensured that all Windows <b>Security Event Logs</b> were forwarded to the <b>aamod-ad</b> index on the Splunk server. After saving the file, I restarted the <b>SplunkForwarder</b> service and confirmed connectivity by allowing inbound traffic on port <b>9997</b> using:
 </p>
 
-</p>
-Restarting "SplunkForwarder":
-<ol>
-<li>In the task bar search type "services" and left click</li>
-<li>Scroll down until you find "SplunkForwarder" and double left click</li>
-<li>left click the "Log On" tab</li>
-<li>left click the "Local System account" check box and left click "Apply"</li>
-<li>In the "Services" window, right click "SplunkForwarder" and left click "Restart"</li>
-<li>If a warning pops up left click "OK"</li>
-<li>Right click "SplunkForwarder" and left click "Start"</li>
-</ol>
-</p>
-
-</p>
-Configure Port 9997:
-<ol>
-<li>ssh into the AAmod-Splunk Ubuntu VM</li>
-<li>type "ufw allow 9997" press Enter</li>
-</ol>
-</p>
+<pre><code>ufw allow 9997</code></pre>
 
 <p align="center">
 <br />
