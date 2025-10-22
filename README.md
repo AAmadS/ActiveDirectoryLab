@@ -117,33 +117,23 @@ The installation followed the standard Windows Server process, requiring minimal
 
 
 <p align="center">
-<br />
-<b>Adding First User:</b> <br/>
+<b>Adding First User:</b><br/>
 <img src="https://imgur.com/FRa8dGk.png" height="80%" width="80%" alt="Adding First User"/>
-<br />
+<br/>
 </p>
 
 <p>
-After the domain controller setup I made a user for testing and authenticating my Cloud Instance (Test Machine). Now to join the Cloud Instance (Test Machine) to the new domain.
+After completing the Domain Controller setup, I created an initial test user account in <b>Active Directory Users and Computers (ADUC)</b>. This account was used to verify authentication and connectivity from the client machine.
 </p>
 
 <p align="center">
-<br />
-<b>Joining Cloud Instance (Test Machine) to new domain</b> <br/>
+<b>Joining Cloud Instance (Test Machine) to the New Domain:</b><br/>
 <img src="https://imgur.com/fbhuSms.png" height="80%" width="80%" alt="Joining Cloud Instance (Test Machine) to new domain"/>
-<br />
+<br/>
 </p>
 
 <p>
-Steps for joining test machine to new domain:
-<ol> 
-<li>Type "This PC" in the task bar search</li>
-<li>Right click, select "properties"</li>
-<li>Left click  "Rename this PC (advanced)" under "Related Settings"</li>
-<li>In the "Computer Name" tab click "change"</li>
-<li>In the "Member of" section left click "Domain" and add the domain name, in my case it was "AAmod"</li>
-<li>Once you click "OK" you will be promoted to put in your administative credentials and you should see a pop up saying "Welcome to [name] domain</li>
-</ol>
+The <b>Cloud Instance (Test Machine)</b> was then joined to the <b>AAmod.local</b> domain. This confirmed proper DNS resolution and domain connectivity between the Windows client and the Domain Controller. Once joined, login with the new domain credentials succeeded, validating the AD environment’s functionality.
 </p>
 
 <p align="center">
