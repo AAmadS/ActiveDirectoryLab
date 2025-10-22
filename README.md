@@ -272,32 +272,26 @@ This configuration allowed the Shuffle bot to automatically post real-time alert
 
 
 <p align="center">
-<br />
-<b>Shuffle Test p1: Alert taken from Splunk</b> <br/>
-<img src="https://imgur.com/9Tcdx3U.png" height="80%" width="80%" alt="Shuffle Test p1: Alert taken from Splunk"/>
-<br />
+<b>Shuffle Test — End-to-End Alert Flow:</b><br/>
+<img src="https://imgur.com/9Tcdx3U.png" height="80%" width="80%" alt="Shuffle Test p1: Alert taken from Splunk"/><br/>
+<img src="https://imgur.com/eobmafC.png" height="80%" width="80%" alt="Shuffle Test p2: Slack Node getting Alert"/><br/>
+<img src="https://imgur.com/HlCHg9O.png" height="80%" width="80%" alt="Shuffle Test p3: Alert posted to Slack"/><br/>
 </p>
-
-<p align="center">
-<br />
-<b>Shuffle Test p2: Slack Node getting Alert</b> <br/>
-<img src="https://imgur.com/eobmafC.png" height="80%" width="80%" alt="Shuffle Test p2: Slack Node getting Alert"/>
-<br />
-</p>
-
-<p align="center">
-<br />
-<b>Shuffle Test p3: Alert posted to Slack</b> <br/>
-<img src="https://imgur.com/HlCHg9O.png" height="80%" width="80%" alt="Shuffle Test p3: Alert posted to Slack"/>
-<br />
-</p>
-<br />
 
 <p>
-The three screenshots are proof of the bot working. I first renabled my Splunk alert, turned on a VPN and logged into the JJohnson account on my Cloud Instance (Test Machine) to generate data. After the alert was triggered on Splunk the webhook brought that data over to Shuffle which then got tranfered to the Slack node. From the Slack node, it then got pushed to the Shuffle bot on Slack and posted the alert in chat.
+These screenshots demonstrate a successful end-to-end test of the automation pipeline:
 </p>
 
-<br/>
+<ol>
+<li><b>Splunk</b> detects a successful remote login and triggers the <b>webhook</b>.</li>
+<li>The webhook forwards event data to <b>Shuffle</b>, which processes it through the configured playbook.</li>
+<li>The <b>Slack Node</b> sends a formatted alert to the designated Slack channel via the <b>Shuffle Bot</b>.</li>
+</ol>
+
+<p>
+To generate this alert, I simulated a remote login using a VPN and the test domain user <b>JJohnson</b>. The entire chain—Splunk → Shuffle → Slack—worked as intended, confirming the automation logic and event visibility in real time.
+</p>
+
 
 <p align="center">
 <br />
