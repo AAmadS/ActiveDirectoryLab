@@ -91,17 +91,17 @@ During initial testing, I encountered a <i>"Destination Host Unreachable"</i> er
 </p>
 
 <p align="center">
-<br />
-<b>Splunk Machine receiving pings:</b> <br/>
+<b>Splunk Machine Receiving Pings:</b><br/>
 <img src="https://imgur.com/Lh1C1RI.png" height="80%" width="80%" alt="Splunk Machine receiving pings"/>
-<br />
+<br/>
 </p>
- 
+
 <p>
+To resolve the connectivity issue, I inspected the network configuration on the <b>Cloud Instance (Test Machine)</b> using <code>ipconfig</code>. The system had self-assigned an <b>APIPA address (169.254.x.x)</b> instead of the expected <b>VPC IP (10.1.96.3)</b>.<br/><br/>
 
-To trouble shoot this issue I logged into my Cloud Instance (Test Machine) and preformed "ipconfig" in the terminal as seen in the screenshot above. If you look at the "Authoconfiguration IPv4 Address" under the "Ethernet Instance 0 2" section you can see that the IP address is 169.254.98.164 when it should be 10.1.96.3 which came from the VPC I set setup earlier. In order to fix this I right clicked the internet icon bottom right -> "Open Network & Internet Settings" -> "Change Adapter Options" -> right click "Ethernet Instance 0 2" -> "Properties" -> double click "Internet Protocol version 4 (TCP/IPv4)" -> click "Use the following IP address" and placed the VPC IP address and subnet mask given from vultr earlier. After, I went back to my ssh on my Splunk machine did "ping 10.1.96.3" and started receving pings. After, I went and did the same to my AAmod-ADDC01 machine. 
-
+The fix involved manually assigning the correct IP and subnet mask through the adapter settings (<i>Ethernet Instance 0 2 → Properties → IPv4 → Use the following IP address</i>). After applying the proper configuration, the <b>Splunk server</b> successfully received ICMP replies from the Test Machine, confirming internal VPC communication. The same correction was applied to the Domain Controller.
 </p>
+
 
 <p align="center">
 <br />
