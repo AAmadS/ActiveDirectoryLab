@@ -34,7 +34,6 @@ The playbook then prompts the analyst via email to confirm whether the compromis
 </ul>
 </p>
 
-<br />
 <p align="center">
 <b>Setting up virtual machines on Vultr and testing communications:</b><br/>
 <img src="https://imgur.com/AEnUhC5.png" height="80%" width="80%" alt="Setting up virtual machines on Vultr and testing communications"/>
