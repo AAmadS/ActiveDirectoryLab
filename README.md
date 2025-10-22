@@ -294,29 +294,25 @@ To generate this alert, I simulated a remote login using a VPN and the test doma
 
 
 <p align="center">
-<br />
-<b>Shuffle Email Notification Confirmation</b> <br/>
+<b>Shuffle Email Notification Confirmation:</b><br/>
 <img src="https://imgur.com/FoCO7aW.png" height="80%" width="80%" alt="Shuffle Email Notification Confirmation"/>
-<br />
+<br/>
 </p>
 
 <p>
- Now to setup the email notification in shuffle asking if I want to disable the user of interest.
+Next, I configured <b>Shuffle</b> to send an email prompt to the SOC analyst asking whether to disable the compromised account. This was achieved using the <b>User Input</b> node, which emails a simple decision form to the analyst.
 </p>
 
 <ol>
- <li>First drag in a "User Input".</li>
- <li>Type "Would like to disable the user? Start parameters: $exec".</li>
- <li>Check the "Email" check box</li>
+<li>Add a <b>User Input</b> node to the workflow.</li>
+<li>Set the prompt text to: <code>Would you like to disable the user? Start parameters: $exec</code>.</li>
+<li>Enable the <b>Email</b> option to send the request to the analyst’s inbox.</li>
 </ol>
 
 <p>
- To test, I went and made a temp mail and did a new run of the workflow.
+For testing, I used a temporary email address to confirm delivery and functionality. The next step connected this user action to the <b>Active Directory</b> node, enabling automated account disablement upon analyst approval.
 </p>
 
-<p>
- Now to connect this user action so that if I want to disable the user I can just click the link for disable and get a notification on Slack for confirmation. To do this I user Shuffle's Active Directory node.
-</p>
 
 <p align="center">
 <br />
