@@ -1,7 +1,7 @@
 <h1>Active Directory Home Lab</h1>
 
 <h2>Description</h2>
-This project simulates a real-world SOC workflow for detecting and responding to unauthorized logins in an Active Directory environment. Using Splunk, Slack, and Shuffle automation, the system alerts a SOC analyst of suspicious logins, enabling them to decide whether to disable the compromised account. If approved, the account is automatically disabled, and a confirmation is sent via Slack.
+This project recreates a small-scale Security Operations Center (SOC) workflow in a virtual Active Directory environment. It integrates Splunk, Shuffle SOAR, and Slack to detect unauthorized logins and automate incident response. When suspicious activity is detected, Splunk triggers a Shuffle playbook that alerts a SOC analyst via Slack and upon approval automatically disables the compromised account in Active Directory.
 <br />
 
 <h2>Languages and Utilities Used</h2>
