@@ -137,34 +137,27 @@ The <b>Cloud Instance (Test Machine)</b> was then joined to the <b>AAmod.local</
 </p>
 
 <p align="center">
-<br />
-<b>Confirmation of Joining Domain</b> <br/>
+<b>Confirmation of Joining Domain:</b><br/>
 <img src="https://imgur.com/lsTfLg0.png" height="80%" width="80%" alt="Confirmation of Joining Domain"/>
-<br />
-</p>
-
-
-</p>
-Incase of DNS issues:
-<ol>
-<li>Right click the network icon in the bottom right of the task bar and left click "Open Network and Internet Settings.</li>
-<li>Under "Advanced network settings" left click "Change adapter options"</li>
-<li>Double left click "Ethernet Instance 0 2"</li>
-<li>Left click "Properties"</li>
-<li>Double left click "Internet Protocol Version 4 (TCP/IPv4)"</li>
-<li>Under "Use the following DNS server addresses:" enter the VPC of the domain controller into the "Perferred DNS server": field</li>
-</ol>
-</p>
-
-<p align="center">
-<br />
-<b>Splunk Enterprise Trial for Ubuntu</b> <br/>
-<img src="https://imgur.com/G2PjT5w.png" height="80%" width="80%" alt="Splunk Enterprise Trial for Ubuntu"/>
-<br />
+<br/>
 </p>
 
 <p>
-Here is where I install and configure Splunk on the Ubuntu server, configure Windows end points to send telemetry over to the splunk server and create a Splunk alert to detect successful Splunk authentications. Since is personal project I'm just using a trial version of Splunk Enterprise for my Ubuntu VM. On the Splunk Enterprise webpage the "Copy wget link" gives you a command you can directly put into your linux terminal to download Splunk. In my case I used the .deb file format.
+After joining the <b>Cloud Instance (Test Machine)</b> to the <b>AAmod.local</b> domain, I verified the connection through <b>Active Directory Users and Computers (ADUC)</b> and confirmed that domain logins were successful. This confirmed full AD functionality and communication across the network.<br/><br/>
+
+If DNS issues occurred during the join process, I manually set the Domain Controller’s VPC IP as the <b>Preferred DNS Server</b> within the client’s network adapter settings to ensure proper domain resolution.
+</p>
+
+<p align="center">
+<b>Installing Splunk Enterprise on Ubuntu:</b><br/>
+<img src="https://imgur.com/G2PjT5w.png" height="80%" width="80%" alt="Splunk Enterprise Trial for Ubuntu"/>
+<br/>
+</p>
+
+<p>
+Next, I deployed <b>Splunk Enterprise</b> on the <b>Ubuntu Server</b> to collect and analyze Windows event logs from the Domain Controller and Test Machine. The installation was completed using the Linux <code>.deb</code> package via the <code>wget</code> command provided by Splunk’s website.<br/><br/>
+
+For this personal lab, I used the <b>Splunk Enterprise Trial</b> to configure data forwarding, event indexing, and alert creation for login activity within the Active Directory environment.
 </p>
 
 <p align="center">
