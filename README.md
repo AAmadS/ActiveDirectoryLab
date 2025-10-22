@@ -208,18 +208,26 @@ This ensured that all Windows <b>Security Event Logs</b> were forwarded to the <
 <pre><code>ufw allow 9997</code></pre>
 
 <p align="center">
-<br />
-<b>Telemetry Confirmation on Splunk Enterprise</b> <br/>
+<b>Telemetry Confirmation on Splunk Enterprise:</b><br/>
 <img src="https://imgur.com/CC4mHKI.png" height="80%" width="80%" alt="Telemetry Confirmation on Splunk Enterprise"/>
-<br />
+<br/>
 </p>
 
 <p>
- Since telemetry is working I decieded to loosen up my firewall by changing the TCP (MS RDP) rule to allow a source from anywhere. Since this is just a project for experimenting this wasn't a big deal. I also setup my first alert on Splunk as shown below.
+After configuring the <b>Splunk Universal Forwarders</b>, event telemetry successfully appeared in <b>Splunk Enterprise</b>, confirming data flow from both the Domain Controller and Test Machine.<br/><br/>
+
+To validate functionality, I created my first alert in Splunk to detect successful logins from remote sources. The query below identifies <b>EventCode 4624</b> (logon success) with specific logon types and filters out known addresses:
 </p>
-<ul>
- <li>index="aamod-ad" EventCode=4624 (Logon_Type=7 OR Logon_Type=10) Source_Network_Address=* Source_Network_Address!="-" Source_Network_Address!=40.* |stats count by _time,ComputerName,Source_Network_Address,user,Logon_Type</li>
-</ul>
+
+<pre><code>index="aamod-ad" EventCode=4624 (Logon_Type=7 OR Logon_Type=10) 
+Source_Network_Address=* Source_Network_Address!="-" Source_Network_Address!=40.* 
+| stats count by _time, ComputerName, Source_Network_Address, user, Logon_Type
+</code></pre>
+
+<p>
+Since this project was developed in a controlled lab environment, I temporarily relaxed inbound RDP rules for easier remote access and testing.
+</p>
+
 
 <p align="center">
 <br />
