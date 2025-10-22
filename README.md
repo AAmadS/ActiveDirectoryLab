@@ -35,34 +35,46 @@ The playbook then prompts the analyst via email to confirm whether the compromis
 </p>
 
 <p align="center">
-<b>Setting up virtual machines on Vultr and testing communications:</b><br/>
+<b>Setting up Virtual Machines on Vultr and Testing Communications:</b><br/>
 <img src="https://imgur.com/AEnUhC5.png" height="80%" width="80%" alt="Setting up virtual machines on Vultr and testing communications"/>
-<br />
+<br/>
 </p>
 
 <p>
- 
-The virtual machines consist of:
-- Two Windows Servers
-  - [AAmod-ADDC01] Domain Controller Specs: 
-    - Server Type: Shared CPU
-    - Cores: 2vCPUs
-    - Memory: 4GB
-    - Storage: 80GB
-    - Windows Standard Version: 2022 x64
-  - [Cloud Instance] Test Machine Specs (forgot to rename):
-    - Server Type: Shared CPU
-    - Cores: 1vCPUs
-    - Memory: 2GB
-    - Storage: 55GB
-    - Windows Standard Version: 2022 x64
-- [AAmod-Splunk] One Ubuntu Server:
-  - Splunk Machine Specs:
-    - Server Type: Shared CPU
-    - Cores: 4vCPUs
-    - Memory: 8GB
-    - Storage: 160GB
-    - Ubuntu Version: 22.02 x64
+The lab environment consists of three virtual machines hosted on <b>Vultr Cloud</b>:
+</p>
+
+<ul>
+  <li><b>[AAmod-ADDC01] – Domain Controller</b>  
+    <ul>
+      <li>Server Type: Shared CPU</li>
+      <li>Cores: 2 vCPUs</li>
+      <li>Memory: 4 GB</li>
+      <li>Storage: 80 GB</li>
+      <li>OS: Windows Server 2022 x64</li>
+    </ul>
+  </li>
+
+  <li><b>[Cloud Instance] – Test Machine</b> (joined to the domain)  
+    <ul>
+      <li>Server Type: Shared CPU</li>
+      <li>Cores: 1 vCPU</li>
+      <li>Memory: 2 GB</li>
+      <li>Storage: 55 GB</li>
+      <li>OS: Windows Server 2022 x64</li>
+    </ul>
+  </li>
+
+  <li><b>[AAmod-Splunk] – Splunk Server</b>  
+    <ul>
+      <li>Server Type: Shared CPU</li>
+      <li>Cores: 4 vCPUs</li>
+      <li>Memory: 8 GB</li>
+      <li>Storage: 160 GB</li>
+      <li>OS: Ubuntu 22.04 LTS x64</li>
+    </ul>
+  </li>
+</ul>
 
 <p align="center">
 <br/>
